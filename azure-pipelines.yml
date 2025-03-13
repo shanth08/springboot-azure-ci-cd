@@ -12,10 +12,11 @@ pool:
   vmImage: 'ubuntu-latest'  # Runs the pipeline on a Linux VM
 
 steps:
-  - task: UseJavaVersion@1
-    inputs:
-      versionSpec: '11'
-      jdkArchitecture: 'x64'
+  - task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '11'
+    jdkArchitecture: 'x64'
+    jdkSource: 'PreInstalled'
 
   - script: |
       mvn clean install
